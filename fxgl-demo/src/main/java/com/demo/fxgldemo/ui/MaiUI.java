@@ -14,6 +14,12 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
  */
+
+
+/**
+
+ */
+/*
 public final class MainUI extends Parent {
 
     public MainUI() {
@@ -58,4 +64,10 @@ public final class MainUI extends Parent {
 
         getChildren().addAll(scoreText, multText, livesBar);
     }
+
+
+
 }
+
+
+ */

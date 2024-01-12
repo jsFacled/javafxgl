@@ -1,5 +1,14 @@
 package com.demo.fxgldemo.entitys;
 
 public enum demoEntityTipe{
-    TOWER, ENEMY, BULLET, WAY, TOWER_BASE
+    PLAYER,
+    ENEMY,
+
+    BULLET,
+
+    BUTTON,
+
+    TOWER, WAY, TOWER_BASE,
+     COIN, PLATFORM, EXIT_TRIGGER, KEY_PROMPT, EXIT_SIGN,
+    DOOR_TOP, DOOR_BOT, MESSAGE_PROMPT;
 }

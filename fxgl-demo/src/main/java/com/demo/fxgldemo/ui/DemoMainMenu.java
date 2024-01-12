@@ -8,7 +8,7 @@ import com.almasb.fxgl.input.view.KeyView;
 import com.almasb.fxgl.input.view.MouseButtonView;
 import com.almasb.fxgl.logging.Logger;
 import com.almasb.fxgl.scene.Scene;
-import com.almasb.fxglgames.geowars.service.HighScoreService;
+//import com.almasb.fxglgames.geowars.service.HighScoreService;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
@@ -27,18 +27,22 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
-import static com.almasb.fxglgames.geowars.Config.SAVE_FILE_NAME;
+//import static com.almasb.fxglgames.geowars.Config.SAVE_FILE_NAME;
 import static javafx.scene.input.KeyCode.*;
 
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
  */
+
+
+/*
 public class DemoMainMenu extends FXGLMenu {
+
 
     private VBox scoresRoot = new VBox(10);
     private Node highScores;
@@ -132,10 +136,6 @@ public class DemoMainMenu extends FXGLMenu {
         getContentRoot().getChildren().addAll(menuBox, hsRoot);
     }
 
-    public DemoMainMenu(@NotNull MenuType type) {
-        super(type);
-    }
-
     private void showCredits() {
         getDialogService().showMessageBox("Sprite assets: https://gisha.itch.io/spaceships-asset-pack?download\n" +
                 "\n" +
@@ -221,4 +221,11 @@ public class DemoMainMenu extends FXGLMenu {
             getChildren().add(text);
         }
     }
+
+
+
+
+
 }
+
+*/
