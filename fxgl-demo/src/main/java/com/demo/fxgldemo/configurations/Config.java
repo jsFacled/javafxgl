@@ -78,7 +78,7 @@ public final class Config {
 
     public static final int BULLET_MOVE_SPEED = 1200;
 
-    
+
     /* MOVE SPEED FOR ENTITIES END */
     /* VELOCIDAD DE MOVER PARA FINAL DE ENTIDADES */
 
