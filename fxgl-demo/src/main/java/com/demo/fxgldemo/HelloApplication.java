@@ -1,4 +1,4 @@
-package com.example.javafxglproyectosiidea;
+package com.demo.fxgldemo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

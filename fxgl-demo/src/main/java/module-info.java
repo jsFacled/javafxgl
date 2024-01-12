@@ -1,4 +1,4 @@
-module com.example.javafxglproyectosiidea {
+module com.demo.fxgldemo {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -8,9 +8,9 @@ module com.example.javafxglproyectosiidea {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
+
     requires com.almasb.fxgl.all;
 
-    opens com.example.javafxglproyectosiidea to javafx.fxml;
-    exports com.example.javafxglproyectosiidea;
+    opens com.demo.fxgldemo to javafx.fxml;
+    exports com.demo.fxgldemo;
 }

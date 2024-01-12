@@ -1,4 +1,4 @@
-package com.example.javafxglproyectosiidea;
+package com.demo.fxgldemo;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
