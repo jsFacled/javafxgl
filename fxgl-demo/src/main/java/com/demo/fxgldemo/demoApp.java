@@ -2,21 +2,23 @@ package com.demo.fxgldemo;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.app.scene.Viewport;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.input.UserAction;
-import com.almasb.fxgl.input.view.KeyView;
 import com.almasb.fxgl.input.virtual.VirtualButton;
-import com.demo.fxgldemo.entitys.PlayerComponent;
+import com.demo.fxgldemo.components.PlayerComponent;
 import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
 
-import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
-import static com.almasb.fxgl.dsl.FXGL.getInput;
-import static com.demo.fxgldemo.entitys.demoEntityTipe.BUTTON;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
+
+/**
+ * Aquí se crea la Entidad Player, en initGame() con: player = spawn("player", 50, 50);
+ */
 public class demoApp extends GameApplication {
-    public static void main(String[] args) { launch(args);    }
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     private Entity player;
 
@@ -25,7 +27,6 @@ public class demoApp extends GameApplication {
 
         gameSettings.setWidth(1280);
         gameSettings.setHeight(720);
-
 
 
         gameSettings.setTitle("Demo Fac 1");
@@ -68,4 +69,44 @@ public class demoApp extends GameApplication {
 
     }
 
+
+    /**
+     * Creación del Mundo del Juego
+     */
+
+    @Override
+    protected void initGame() {
+    /*
+    Creacion del GameWorld
+    * */
+
+        /*
+        Creación del Player
+        * */
+        player = spawn("player", 50, 50);
+        set("player", player);
+
+
+    /*
+    getGameWorld().addEntityFactory(new PlatformerFactory());
+
+    player = null;
+    nextLevel();
+
+    // player must be spawned after call to nextLevel, otherwise player gets removed
+    // before the update tick _actually_ adds the player to game world
+    player = spawn("player", 50, 50);
+
+    set("player", player);
+
+    spawn("background");
+
+    Viewport viewport = getGameScene().getViewport();
+    viewport.setBounds(-1500, 0, 250 * 70, getAppHeight());
+    viewport.bindToEntity(player, getAppWidth() / 2, getAppHeight() / 2);
+    viewport.setLazy(true);
+     */
+
+
+    }
 }

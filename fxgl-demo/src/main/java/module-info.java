@@ -13,4 +13,6 @@ module com.demo.fxgldemo {
 
     opens com.demo.fxgldemo to javafx.fxml;
     exports com.demo.fxgldemo;
+    exports com.demo.fxgldemo.factories;
+    opens com.demo.fxgldemo.factories to javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package com.demo.fxgldemo;
+package com.demo.fxgldemo.factories;
 
 import com.almasb.fxgl.entity.EntityFactory;
 
