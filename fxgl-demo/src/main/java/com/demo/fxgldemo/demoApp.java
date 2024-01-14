@@ -7,14 +7,20 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.input.virtual.VirtualButton;
 import com.demo.fxgldemo.components.PlayerComponent;
+import com.demo.fxgldemo.factories.DemoFactory;
 import javafx.scene.input.KeyCode;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 
 /**
+ * GameApplication es el GameWorld.
  * Aquí se crea la Entidad Player, en initGame() con: player = spawn("player", 50, 50);
+ * Para obtener el Mundo del Juego se llama a getGameWold().
+ *
  */
+
+
 public class demoApp extends GameApplication {
     public static void main(String[] args) {
         launch(args);
@@ -76,15 +82,18 @@ public class demoApp extends GameApplication {
 
     @Override
     protected void initGame() {
-    /*
-    Creacion del GameWorld
-    * */
+        /*
+        *   // Agregamos primero el Factory
+        * */
+        getGameWorld().addEntityFactory(new DemoFactory());
+
 
         /*
-        Creación del Player
+            ** // Creación del Player.
+          *Primero hay que configurarlo en un Factory. He creado la clase demoFactory
         * */
-        player = spawn("player", 50, 50);
-        set("player", player);
+        player = spawn("player", 50, 50);//llama al método que crea un player.
+        set("player", player);//lo agrega al GameWorld.
 
 
     /*

@@ -15,4 +15,7 @@ module com.demo.fxgldemo {
     exports com.demo.fxgldemo;
     exports com.demo.fxgldemo.factories;
     opens com.demo.fxgldemo.factories to javafx.fxml;
+
+    // Agrega esta línea para exportar el paquete com.demo.fxgldemo.components
+    exports com.demo.fxgldemo.components;
 }

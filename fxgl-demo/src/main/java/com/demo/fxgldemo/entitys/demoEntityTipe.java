@@ -1,10 +1,10 @@
 package com.demo.fxgldemo.entitys;
 
 public enum demoEntityTipe{
-        //Jugador
-    PLAYER,
+        //Jugadores
+    PLAYER, PLAYERCUBO,
 
-         //Enemigo
+         //Enemigos
     ENEMY,
 
         //Objetos

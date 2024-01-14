@@ -18,23 +18,21 @@ import static com.almasb.fxgl.dsl.FXGL.image;
  * Se especifican las características y comportamiento del Jugador
  * Gestionando su animación, movimiento y capacidad de salto.
  * Este componente puede ser agregado a una entidad del juego.
- *
+ * <p>
  * **physics
  * Representa el componente de física asociado al jugador.
  * Se utiliza para controlar la física del jugador, como la velocidad y la detección de colisiones.
- *
+ * <p>
  * **texture
  * Se utiliza para visualizar la animación del jugador en pantalla.
- *
+ * <p>
  * **AnimationChannel
  * Definen canales de animación para la textura animada.
  * ***animIdle: representa la animación cuando el jugador está inactivo
  * ***animWalk: representa la animación al caminar.
  */
 public class PlayerComponent extends Component {
-
-    private PhysicsComponent physics;
-
+    //private PhysicsComponent physics;
     private AnimatedTexture texture;
 
     private AnimationChannel animIdle, animWalk;
@@ -68,11 +66,14 @@ public class PlayerComponent extends Component {
         entity.getTransformComponent().setScaleOrigin(new Point2D(16, 21));
         entity.getViewComponent().addChild(texture);
 
+        /*
         physics.onGroundProperty().addListener((obs, old, isOnGround) -> {
             if (isOnGround) {
                 jumps = 2;
             }
         });
+
+         */
     }
 
     @Override
@@ -87,6 +88,8 @@ public class PlayerComponent extends Component {
             Esto proporciona una representación visual coherente del estado del jugador en el juego.
          */
 
+
+        /*
         if (physics.isMovingX()) {
             if (texture.getAnimationChannel() != animWalk) {
                 texture.loopAnimationChannel(animWalk);
@@ -96,27 +99,29 @@ public class PlayerComponent extends Component {
                 texture.loopAnimationChannel(animIdle);
             }
         }
+        */
+
     }
 
     public void left() {
         getEntity().setScaleX(-1);
-        physics.setVelocityX(-170);
+       // physics.setVelocityX(-170);
     }
 
     public void right() {
         getEntity().setScaleX(1);
-        physics.setVelocityX(170);
+        //physics.setVelocityX(170);
     }
 
     public void stop() {
-        physics.setVelocityX(0);
+        //physics.setVelocityX(0);
     }
 
     public void jump() {
         if (jumps == 0)
             return;
 
-        physics.setVelocityY(-300);
+//        physics.setVelocityY(-300);
 
         jumps--;
     }
