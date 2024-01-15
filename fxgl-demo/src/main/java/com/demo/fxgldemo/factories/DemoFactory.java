@@ -54,7 +54,7 @@ public class DemoFactory implements EntityFactory {
         return entityBuilder(data)
                 .type(PLAYER)
                 .viewWithBBox(new Rectangle(30, 30, Color.BLUE))
-                .with(new CollidableComponent(true))
+                .with(new CollidableComponent(true))//indicamos que puede colisionar, que es colisionable
                 .with(new IrremovableComponent())
                 .with(new PlayerComponent())
                 .build();
@@ -66,6 +66,18 @@ public class DemoFactory implements EntityFactory {
         return entityBuilder(data)
                 .type(PLAYERCUBO)
                 .viewWithBBox(new Rectangle(100, 30, Color.RED))
+                .collidable()//indicamos que puede colisionar, que es colisionable
+                .with(new PlayerCuboComponent())
+                .build();
+    }
+
+    @Spawns("playerCubo2")
+    public Entity newPlayerCubo2(SpawnData data) {
+
+        return entityBuilder(data)
+                .type(PLAYERCUBO)
+                .viewWithBBox(new Rectangle(100, 30, Color.BLUE))
+                .collidable()//indicamos que puede colisionar, que es colisionable
                 .with(new PlayerCuboComponent())
                 .build();
     }

@@ -33,8 +33,6 @@ public class demoApp extends GameApplication {
 
         gameSettings.setWidth(1280);
         gameSettings.setHeight(720);
-
-
         gameSettings.setTitle("Demo Fac 1");
         gameSettings.setAppIcon("bf-asomado.png");
 

@@ -32,7 +32,7 @@ import static com.almasb.fxgl.dsl.FXGL.image;
  * ***animWalk: representa la animación al caminar.
  */
 public class PlayerComponent extends Component {
-    //private PhysicsComponent physics;
+    private PhysicsComponent physics;
     private AnimatedTexture texture;
 
     private AnimationChannel animIdle, animWalk;
