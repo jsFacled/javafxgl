@@ -19,6 +19,7 @@ import com.demo.fxgldemo.components.PlayerComponent;
 import com.demo.fxgldemo.components.PlayerCuboComponent;
 import javafx.geometry.Point2D;
 import javafx.scene.CacheHint;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -81,6 +82,7 @@ public class DemoFactory implements EntityFactory {
                 .with(new PlayerCuboComponent())
                 .build();
     }
+
 
 /*
     @Spawns("background")

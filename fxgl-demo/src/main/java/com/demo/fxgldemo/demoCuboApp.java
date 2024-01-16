@@ -13,6 +13,7 @@ import com.demo.fxgldemo.components.PlayerCuboComponent;
 import com.demo.fxgldemo.factories.DemoFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static com.almasb.fxgl.dsl.FXGL.set;
@@ -33,17 +34,24 @@ public class demoCuboApp extends GameApplication {
 
     @Override
     protected void initSettings(GameSettings gameSettings) {
+
         gameSettings.setTitle("Probando demoCuboApp");
+        gameSettings.setMainMenuEnabled(false);
+
     }
 
     @Override
     protected void initGame() {
         getGameWorld().addEntityFactory(demoFactory);
+        //getGameScene().setBackgroundColor(Paint.valueOf("green"));
+        getGameScene().setBackgroundColor(Color.color(0, 0, 0.05, 1.0));
+
         playerCubo = spawn("playerCubo",0,450);//lo ubico abajo en el centro
         set("playerCubo", playerCubo);
 
         playerCubo2 = spawn("playerCubo2",500,5);//lo ubico abajo en el centro
         set("playerCubo2", playerCubo2);
+
 
     }
 
@@ -86,31 +94,7 @@ public class demoCuboApp extends GameApplication {
             return null; // Agrega esta línea para indicar que la expresión lambda retorna null
         });
 
-      /*  getInput().addAction(new UserAction("Left") {
-            @Override
-            protected void onAction() {
-                playerCubo.getComponent(PlayerCuboComponent.class).left();
-            }
 
-            @Override
-            protected void onActionEnd() {
-                playerCubo.getComponent(PlayerCuboComponent.class).stop();
-            }
-        }, KeyCode.A, VirtualButton.LEFT);
-
-        getInput().addAction(new UserAction("Right") {
-            @Override
-            protected void onAction() {
-                playerCubo.getComponent(PlayerCuboComponent.class).right();
-            }
-
-            @Override
-            protected void onActionEnd() {
-                playerCubo.getComponent(PlayerCuboComponent.class).stop();
-            }
-        }, KeyCode.D, VirtualButton.RIGHT);
-
-       */
 
     }
 

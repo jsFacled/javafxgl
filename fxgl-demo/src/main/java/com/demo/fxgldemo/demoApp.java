@@ -101,7 +101,9 @@ public class demoApp extends GameApplication {
     nextLevel();
 
     // player must be spawned after call to nextLevel, otherwise player gets removed
+      //El jugador debe generarse después de llamar al siguiente nivel; de lo contrario, el jugador será eliminado.
     // before the update tick _actually_ adds the player to game world
+      //antes de la marca de actualización _en realidad_ agrega al jugador al mundo del juego
     player = spawn("player", 50, 50);
 
     set("player", player);
