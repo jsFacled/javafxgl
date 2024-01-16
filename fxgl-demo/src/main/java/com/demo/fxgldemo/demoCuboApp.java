@@ -14,6 +14,8 @@ import com.demo.fxgldemo.factories.DemoFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static com.almasb.fxgl.dsl.FXGL.set;
@@ -35,33 +37,23 @@ public class demoCuboApp extends GameApplication {
     @Override
     protected void initSettings(GameSettings gameSettings) {
 
+        System.out.println(" ------------------------------------------       Estoy en initSettings    ");
         gameSettings.setTitle("Probando demoCuboApp");
         gameSettings.setMainMenuEnabled(false);
 
     }
 
     @Override
-    protected void initGame() {
-        getGameWorld().addEntityFactory(demoFactory);
-        //getGameScene().setBackgroundColor(Paint.valueOf("green"));
-        getGameScene().setBackgroundColor(Color.color(0, 0, 0.05, 1.0));
-
-        playerCubo = spawn("playerCubo",0,450);//lo ubico abajo en el centro
-        set("playerCubo", playerCubo);
-
-        playerCubo2 = spawn("playerCubo2",500,5);//lo ubico abajo en el centro
-        set("playerCubo2", playerCubo2);
-
-
-    }
-
-    @Override
     protected void initInput() {
+        System.out.println(" ------------------------------------------       Estoy en initInput     -------------");
 
-     // onKey(KeyCode.A,() -> playerCubo.translateX(-5.0));
+
+        // onKey(KeyCode.A,() -> playerCubo.translateX(-5.0));
         onKey(KeyCode.A, () -> {
+            System.out.println("-------he presionado hacia la Izquierda --------");
             playerCubo.translateX(-5.0);
             return null; // Agrega esta línea para indicar que la expresión lambda retorna null
+
         });
         onKey(KeyCode.D, () -> {
             playerCubo.translateX(5.0);
@@ -94,6 +86,31 @@ public class demoCuboApp extends GameApplication {
             return null; // Agrega esta línea para indicar que la expresión lambda retorna null
         });
 
+
+
+    }
+
+
+    @Override
+    protected void initGame() {
+        System.out.println(" ------------------------------------------       Estoy en initGame     -------------");
+        getGameWorld().addEntityFactory(demoFactory);
+        //getGameScene().setBackgroundColor(Paint.valueOf("green"));
+        getGameScene().setBackgroundColor(Color.color(0, 0, 0.05, 1.0));
+
+        playerCubo = spawn("playerCubo",0,450);//lo ubico abajo en el centro
+        set("playerCubo", playerCubo);
+
+        playerCubo2 = spawn("playerCubo2",500,5);//lo ubico abajo en el centro
+        set("playerCubo2", playerCubo2);
+
+        //generamos objeto aleatoriamente
+        run( ()->{
+            System.out.println("El run() devuelve getGameTimer(): "+ getGameWorld().toString());
+            var ax = random(25,800);
+            var ay = random(25,600);
+            spawn("c1",ax,ay);
+        }, Duration.seconds(0.5));
 
 
     }

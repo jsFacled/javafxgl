@@ -22,6 +22,7 @@ import javafx.scene.CacheHint;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
@@ -83,6 +84,14 @@ public class DemoFactory implements EntityFactory {
                 .build();
     }
 
+    @Spawns("c1")
+    public Entity newC1(SpawnData data) {
+var radiusRandom = random(5,55);
+        return entityBuilder(data)
+                .viewWithBBox(new Circle(radiusRandom, Color.AQUA))//radio random, color
+                .collidable()//indicamos que puede colisionar, que es colisionable
+                .build();
+    }
 
 /*
     @Spawns("background")
