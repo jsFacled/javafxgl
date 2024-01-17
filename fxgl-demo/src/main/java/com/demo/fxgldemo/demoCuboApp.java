@@ -51,7 +51,6 @@ public class demoCuboApp extends GameApplication {
         // onKey(KeyCode.A,() -> playerCubo.translateX(-5.0));
         onKey(KeyCode.A, () -> {
             System.out.println("-------he presionado hacia la Izquierda --------");
-            System.out.println(" -------- Las properties son:   "+getGameWorld().getProperties().toStringMap());
             playerCubo.translateX(-5.0);
             return null; // Agrega esta línea para indicar que la expresión lambda retorna null
 
@@ -103,7 +102,7 @@ public class demoCuboApp extends GameApplication {
         set("playerCubo", playerCubo);
 
         playerCubo2 = spawn("playerCubo2",500,5);//lo ubico abajo en el centro
-        set("playerCubo2", playerCubo2);
+        set("playerCubo2", playerCubo2);//agrego a properties del GameWorld.
 
         //generamos 2 tipos de objeto aleatoriamente
         run( ()->{
@@ -111,6 +110,7 @@ public class demoCuboApp extends GameApplication {
             var ay = random(25,600);
 
             spawn("c1",ax,ay);
+
 
         }, Duration.seconds(0.1));
         run( ()->{
@@ -120,9 +120,13 @@ public class demoCuboApp extends GameApplication {
             spawn("c2",ax2,ay2);
         }, Duration.seconds(0.7));
 
+        run(()->{
+            spawn("rect",0,50);
+        },Duration.seconds(0.9));
+
 
         System.out.println(" ------------------------------------------       Estoy en initGame     -------------");
-        System.out.println(" -------- Las properties son:   "+getGameWorld().getProperties().toStringMap());
+        System.out.println(" ------------------------------------------ Las properties son:   "+getGameWorld().getProperties().toStringMap()+"--------------------------");
     }
 
 

@@ -102,9 +102,21 @@ var radiusRandom = random(5,55);
                 .viewWithBBox(new Circle(radiusRandom, Color.BISQUE))//radio random, color
                 .collidable()//indicamos que puede colisionar, que es colisionable
                 .with(new ProjectileComponent(new Point2D(0,1),200))//caída vertical
-                .buildAndAttach();
+                .build();
 
     }
+    //Entity rect se moverá horizontalmente
+    @Spawns("rect")
+    public Entity newRect(SpawnData data) {
+        var radiusRandom = random(0,800);
+        return entityBuilder(data)
+                .view(new Rectangle(50,5,Color.CHARTREUSE))
+                .collidable()//indicamos que puede colisionar, que es colisionable
+                .with(new ProjectileComponent(new Point2D(1,0),100))//movimiento horizontal
+                .build();
+
+    }
+
 
 /*
     @Spawns("background")
