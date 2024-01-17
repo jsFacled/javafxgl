@@ -84,7 +84,16 @@ public class DemoFactory implements EntityFactory {
                 .with(new PlayerCuboComponent())
                 .build();
     }
+    @Spawns("playerCubo3")
+    public Entity newPlayerCubo3(SpawnData data) {
 
+        return entityBuilder(data)
+                .viewWithBBox(new Rectangle(50, 50, Color.AZURE))
+                .collidable()//indicamos que puede colisionar, que es colisionable
+                .with(new ProjectileComponent(new Point2D(1,0),20))
+
+                .build();
+    }
     @Spawns("c1")
     public Entity newC1(SpawnData data) {
 var radiusRandom = random(5,55);

@@ -104,6 +104,8 @@ public class demoCuboApp extends GameApplication {
         playerCubo2 = spawn("playerCubo2",500,5);//lo ubico abajo en el centro
         set("playerCubo2", playerCubo2);//agrego a properties del GameWorld.
 
+        spawn("playerCubo3",50,50);//creo cubo para luego agregar imagen
+
         //generamos 2 tipos de objeto aleatoriamente
         run( ()->{
             var ax = random(25,800);
