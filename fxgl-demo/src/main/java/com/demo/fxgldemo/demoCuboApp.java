@@ -51,6 +51,7 @@ public class demoCuboApp extends GameApplication {
         // onKey(KeyCode.A,() -> playerCubo.translateX(-5.0));
         onKey(KeyCode.A, () -> {
             System.out.println("-------he presionado hacia la Izquierda --------");
+            System.out.println(" -------- Las properties son:   "+getGameWorld().getProperties().toStringMap());
             playerCubo.translateX(-5.0);
             return null; // Agrega esta línea para indicar que la expresión lambda retorna null
 
@@ -93,7 +94,7 @@ public class demoCuboApp extends GameApplication {
 
     @Override
     protected void initGame() {
-        System.out.println(" ------------------------------------------       Estoy en initGame     -------------");
+
         getGameWorld().addEntityFactory(demoFactory);
         //getGameScene().setBackgroundColor(Paint.valueOf("green"));
         getGameScene().setBackgroundColor(Color.color(0, 0, 0.05, 1.0));
@@ -104,15 +105,24 @@ public class demoCuboApp extends GameApplication {
         playerCubo2 = spawn("playerCubo2",500,5);//lo ubico abajo en el centro
         set("playerCubo2", playerCubo2);
 
-        //generamos objeto aleatoriamente
+        //generamos 2 tipos de objeto aleatoriamente
         run( ()->{
-            System.out.println("El run() devuelve getGameTimer(): "+ getGameWorld().toString());
             var ax = random(25,800);
             var ay = random(25,600);
+
             spawn("c1",ax,ay);
-        }, Duration.seconds(0.5));
+
+        }, Duration.seconds(0.1));
+        run( ()->{
+            var ax2 = random(25,800);
+            var ay2 = random(25,600);
+
+            spawn("c2",ax2,ay2);
+        }, Duration.seconds(0.7));
 
 
+        System.out.println(" ------------------------------------------       Estoy en initGame     -------------");
+        System.out.println(" -------- Las properties son:   "+getGameWorld().getProperties().toStringMap());
     }
 
 

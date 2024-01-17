@@ -1,0 +1,13 @@
+-!- Notar que no figuran las Entidades dentro de run().
+
+{playerCubo=Entity(
+[Transform(0.0, 450.0, 0.0, 1.0, 1.0), Type(PLAYERCUBO), View(), bbox([HitBox(__VIEW__,Box)])
+]
+[Collidable(true), PlayerCubo()
+]),
+
+playerCubo2=Entity(
+[Transform(500.0, 5.0, 0.0, 1.0, 1.0), Type(PLAYERCUBO), View(), bbox([HitBox(__VIEW__,Box)])
+]
+[Collidable(true), PlayerCubo()
+])}

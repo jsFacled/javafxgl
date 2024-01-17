@@ -80,6 +80,7 @@ public class demoApp extends GameApplication {
 
     @Override
     protected void initGame() {
+
         /*
         *   // Agregamos primero el Factory
         * */
@@ -91,7 +92,10 @@ public class demoApp extends GameApplication {
           *Primero hay que configurarlo en un Factory. He creado la clase demoFactory
         * */
         player = spawn("player", 50, 50);//llama al método que crea un player.
-        set("player", player);//lo agrega al GameWorld.
+        set("player", player);//lo agrega al array properties del GameWorld y lo referencia con la variable player.
+            /*
+            * this.getWorldProperties().setValue(varName, value);
+            * */
 
 
     /*

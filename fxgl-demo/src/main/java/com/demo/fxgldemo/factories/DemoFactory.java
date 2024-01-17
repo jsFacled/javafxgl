@@ -1,6 +1,7 @@
 package com.demo.fxgldemo.factories;
 
 import com.almasb.fxgl.dsl.components.LiftComponent;
+import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.dsl.views.ScrollingBackgroundView;
 import com.almasb.fxgl.entity.Entity;
 
@@ -91,6 +92,18 @@ var radiusRandom = random(5,55);
                 .viewWithBBox(new Circle(radiusRandom, Color.AQUA))//radio random, color
                 .collidable()//indicamos que puede colisionar, que es colisionable
                 .build();
+    }
+
+    //Entity c2 caerá verticalmente
+    @Spawns("c2")
+    public Entity newC2(SpawnData data) {
+        var radiusRandom = random(5,55);
+        return entityBuilder(data)
+                .viewWithBBox(new Circle(radiusRandom, Color.BISQUE))//radio random, color
+                .collidable()//indicamos que puede colisionar, que es colisionable
+                .with(new ProjectileComponent(new Point2D(0,1),200))//caída vertical
+                .buildAndAttach();
+
     }
 
 /*
