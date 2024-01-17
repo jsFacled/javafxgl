@@ -1,8 +1,6 @@
 package com.demo.fxgldemo.factories;
 
-import com.almasb.fxgl.dsl.components.LiftComponent;
 import com.almasb.fxgl.dsl.components.ProjectileComponent;
-import com.almasb.fxgl.dsl.views.ScrollingBackgroundView;
 import com.almasb.fxgl.entity.Entity;
 
 import com.almasb.fxgl.entity.EntityFactory;
@@ -10,26 +8,15 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
-import com.almasb.fxgl.input.view.KeyView;
-import com.almasb.fxgl.physics.BoundingShape;
-import com.almasb.fxgl.physics.HitBox;
-import com.almasb.fxgl.physics.PhysicsComponent;
-import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
-import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.demo.fxgldemo.components.PlayerComponent;
 import com.demo.fxgldemo.components.PlayerCuboComponent;
 import javafx.geometry.Point2D;
-import javafx.scene.CacheHint;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
-import static com.demo.fxgldemo.entitys.demoEntityTipe.PLAYER;
-import static com.demo.fxgldemo.entitys.demoEntityTipe.PLAYERCUBO;
+import static com.demo.fxgldemo.entitys.demoEntityTipe.*;
 
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
@@ -88,7 +75,10 @@ public class DemoFactory implements EntityFactory {
     public Entity newPlayerCubo3(SpawnData data) {
 
         return entityBuilder(data)
-                .viewWithBBox(new Rectangle(50, 50, Color.AZURE))
+                .type(PLAYERCUBO3)
+                //.viewWithBBox(new Rectangle(50, 50, Color.AZURE))
+                //.view("player.png")
+                .viewWithBBox(texture("sprite_player.png", 40, 40))
                 .collidable()//indicamos que puede colisionar, que es colisionable
                 .with(new ProjectileComponent(new Point2D(1,0),20))
 

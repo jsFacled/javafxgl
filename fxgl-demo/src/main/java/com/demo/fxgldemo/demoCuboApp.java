@@ -33,6 +33,7 @@ public class demoCuboApp extends GameApplication {
     private final DemoFactory demoFactory = new DemoFactory();
     private Entity playerCubo;
     private Entity playerCubo2;
+    private Entity playerCubo3;
 
     @Override
     protected void initSettings(GameSettings gameSettings) {
@@ -104,8 +105,8 @@ public class demoCuboApp extends GameApplication {
         playerCubo2 = spawn("playerCubo2",500,5);//lo ubico abajo en el centro
         set("playerCubo2", playerCubo2);//agrego a properties del GameWorld.
 
-        spawn("playerCubo3",50,50);//creo cubo para luego agregar imagen
-
+        playerCubo3 = spawn("playerCubo3",50,50);//creo cubo para luego agregar imagen
+        set("playerCubo3", playerCubo3);
         //generamos 2 tipos de objeto aleatoriamente
         run( ()->{
             var ax = random(25,800);
