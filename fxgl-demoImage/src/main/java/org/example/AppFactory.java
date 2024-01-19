@@ -23,6 +23,7 @@ public class AppFactory implements EntityFactory {
                 //.view("sprite_player.png")
                 .viewWithBBox(texture("bfrances.png",32,37))
                 .at(300,500)
+                .collidable()
                 .build();
 
 
@@ -39,6 +40,7 @@ public class AppFactory implements EntityFactory {
                 //.view("sprite_player.png")
                 .viewWithBBox(texture("hueso.png",15,15))
                 .at(ax,ay)
+                .collidable()
                 .build();
     }
 

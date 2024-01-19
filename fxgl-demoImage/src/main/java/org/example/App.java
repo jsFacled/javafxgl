@@ -4,11 +4,14 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.physics.CollisionHandler;
+import com.almasb.fxgl.physics.PhysicsWorld;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
+import static org.example.AppType.*;
 
 /**
  * Hello world!
@@ -52,6 +55,21 @@ public class App extends GameApplication {
 
 
     }
+    @Override
+    protected void initPhysics() {
+        //Obtengo el PhysicsWold con getPhysicsWorld()
+
+
+        //Agrego un Manejador de Colision
+        //Indico un Handler, en este caso creo uno nuevo aquí sobreescribiendo su métdo onCollisionBegin.
+        getPhysicsWorld().addCollisionHandler(new CollisionHandler(IMAGE,HUESO) {
+            @Override
+            protected void onCollisionBegin(Entity i, Entity h) {
+                h.removeFromWorld();
+                System.out.println("////////************///////////////****************");
+            }
+        });
+    }
 
     @Override
     protected void initGame() {
@@ -74,10 +92,9 @@ public class App extends GameApplication {
             spawn("huesoAleatorio");
             }, Duration.seconds(0.5));
 
-
-
-
     }
+
+
 
     //fin
     public static void main(String[] args) {
