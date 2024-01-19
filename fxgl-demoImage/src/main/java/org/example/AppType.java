@@ -1,5 +1,5 @@
 package org.example;
 
 public enum AppType {
-    IMAGE
+    IMAGE, HUESO, NAVE
 }
