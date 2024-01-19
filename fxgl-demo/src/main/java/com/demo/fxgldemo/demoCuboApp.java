@@ -107,8 +107,9 @@ public class demoCuboApp extends GameApplication {
 
         playerCubo3 = spawn("playerCubo3",50,50);//creo cubo para luego agregar imagen
         set("playerCubo3", playerCubo3);
+
         //generamos 2 tipos de objeto aleatoriamente
-        run( ()->{
+            run( ()->{
             var ax = random(25,800);
             var ay = random(25,600);
 
