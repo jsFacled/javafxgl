@@ -1,5 +1,5 @@
 package org.example;
 
 public enum AppType {
-    IMAGE, HUESO, NAVE
+PLAYER,    IMAGE, HUESO, NAVE, BACKGROUND
 }
