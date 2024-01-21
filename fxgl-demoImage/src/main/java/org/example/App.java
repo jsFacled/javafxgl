@@ -23,9 +23,7 @@ import java.util.List;
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static org.example.AppType.*;
 
-/**
- * Hello world!
- */
+
 public class App extends GameApplication {
 
     private final AppFactory appFactory = new AppFactory();
@@ -52,7 +50,7 @@ public class App extends GameApplication {
         AnimatedTexture texture;
         AnimationChannel animIdle, animWalk;
 
-        Image image = image("lilpuddinpuggums.png");
+        Image image = image("sprite_pug.png");
 
         animIdle = new AnimationChannel(image, 4, 32, 42, Duration.seconds(1), 1, 1);
         animWalk = new AnimationChannel(image, 4, 32, 42, Duration.seconds(0.66), 0, 3);
@@ -85,7 +83,7 @@ public class App extends GameApplication {
 
 */
 
-        Image i = image("lilpuddinpuggums.png");
+        Image i = image("sprite_pug.png");
         int framesPerRow =3;
         int frameWidth = 20;
         int frameHeight = 20;
@@ -186,7 +184,8 @@ public class App extends GameApplication {
         set("player", player);
 
         playerAnimado = spawn("playerAnimado");
-        set("player", playerAnimado);
+        set("playerAnimado", playerAnimado);
+        System.out.println("------------------------------------Player Animado Construido -----------------");
 
 
         nave = spawn("nave");
@@ -202,7 +201,7 @@ public class App extends GameApplication {
         //La pantalla seguirá al Jugador y se duplicará de ser necesario.
         Viewport viewport = getGameScene().getViewport();
         viewport.setBounds(-1500, 0, 250 * 70, getAppHeight());
-        viewport.bindToEntity(player, getAppWidth() / 2, getAppHeight() / 2);
+        viewport.bindToEntity(playerAnimado, getAppWidth() / 2, getAppHeight() / 2);
         viewport.setLazy(true);
 
     }

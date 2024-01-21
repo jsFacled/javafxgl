@@ -12,7 +12,7 @@ public class PlayerComponent extends Component {
     private AnimatedTexture texture;
     private AnimationChannel animIdle, animWalk; //Inactivo, Caminar;
 
-    Image image = image("lilpuddinpuggums.png");
+    Image image = image("sprite_pug.png");
 
     public PlayerComponent() {
         animIdle = new AnimationChannel(image, 4, 32, 42, Duration.seconds(1), 1, 1);

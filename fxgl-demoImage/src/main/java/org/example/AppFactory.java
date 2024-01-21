@@ -14,6 +14,7 @@ import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
 import javafx.geometry.Point2D;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -32,24 +33,34 @@ public class AppFactory implements EntityFactory {
 
     @Spawns("playerAnimado")
     public Entity newPlayerAnimado(SpawnData data) {
+        //La imagen mide 96x192
 
-        Image i = image("lilpuddinpuggums.png");
+        Image i = image("sprite_pug.png");
         int framesPerRow =3;
-        int frameWidth = 40;
-        int frameHeight = 40;
-        Duration channelDuration =Duration.seconds(0.2);
+        int frameWidth = 96;
+        int frameHeight = 192;
+        Duration channelDuration =Duration.seconds(1);
         int startFrame=1;
         int endFrame=4;
 
         AnimationChannel channelFrente = new AnimationChannel(i,framesPerRow,frameWidth,frameHeight,channelDuration,startFrame,endFrame);
+        AnimatedTexture textureFrente = new AnimatedTexture(channelFrente);
 
 
         return entityBuilder()
-                .type(PLAYER)
-                .view(new AnimatedTexture(channelFrente))
-               .with(new PlayerComponent())
+                .type(PLAYERANIMADO)
+                //.view(textureFrente)
+                //.view(new Rectangle())
+                .view(texture("sprite_pug.png").subTexture(new Rectangle2D(0,20,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(1)).loop())
+
+                //.viewWithBBox(texture("sprite_pug.png", 50, 50))
+
+
+
                 .at(getAppWidth()/3,getAppHeight()/3)
                 .collidable()
+
+
                 .build();
 
     }
@@ -58,22 +69,25 @@ public class AppFactory implements EntityFactory {
     public Entity newPlayer(SpawnData data) {
 
         // -- Creación de una textura animada --
-        //* FXGL.texture() devuelve un Texture.
+        //* FXGL.texture() devuelve un Texture que es de fxgl pero extiende de ImageView que es de javafx.scene.image.
         //* toAnimatedTexture() es método de Texture:
         // * * Recibe cantidad de frames y la duración de la animación
         // * * Esos parámetros los maneja internamente como AnimationChannel
-        // * * Devuelve un AnimatedTexture
+        // * * Devuelve un AnimatedTexture que es un Texture, por lo tanto es un Node.
         // --
+        // * .view recibe un Node que es de javafx.scene y lo agrega al ViewComponent().
+        //* Por lo tanto Texture es un Node.
 
-        AnimatedTexture view = FXGL.texture("lilpuddinpuggums.png").toAnimatedTexture(3, Duration.seconds(0.33));
+        AnimatedTexture view = FXGL.texture("sprite_pug.png").toAnimatedTexture(3, Duration.seconds(0.33));
 
         return entityBuilder()
                 .type(PLAYER)
 
                 .anchorFromCenter()
-                .view(view.loop())
+                //.view(view.loop())
+                .view(view)
 
-                .with(new PlayerComponent())
+                //.with(new PlayerComponent())
 
                 .at(getAppWidth()/2,getAppHeight()/2)
                 .collidable()
