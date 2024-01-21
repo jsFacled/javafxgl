@@ -18,6 +18,7 @@ import javafx.util.Duration;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
+import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static org.example.AppType.*;
@@ -29,6 +30,7 @@ public class App extends GameApplication {
 
     private final AppFactory appFactory = new AppFactory();
     private Entity player;
+    private Entity playerAnimado;
     private Entity image;
     private Entity huesoAleatorio;
     private Entity nave;
@@ -44,7 +46,7 @@ public class App extends GameApplication {
 
     }
 
-    public void anim() {
+    public void animacionAnimatedChannel() {
         //Creación de AnimatedTexture utilizando AnimationChannel
 
         AnimatedTexture texture;
@@ -58,6 +60,41 @@ public class App extends GameApplication {
         texture = new AnimatedTexture(animIdle);
         texture.loop();
 
+        //Busco primera fila de la imagen con los sprites
+        //Atributos de AnimationChannel:
+            // --private final Image image;
+            // --private final List frameData;
+            //--private final List sequence;
+            //--private final double frameDuration;
+
+
+/*
+- **Constructor adicional:**
+ 	(Image image,
+ 	int framesPerRow,
+ 	int frameWidth,
+ 	int frameHeight,
+ 	Duration channelDuration,
+ 	int startFrame,
+ 	int endFrame)
+
+  Este constructor permite especificar:
+   -el número de fotogramas por fila,
+   -el ancho y alto de cada fotograma,
+   -así como el rango de fotogramas que se deben incluir en el canal.
+
+*/
+
+        Image i = image("lilpuddinpuggums.png");
+        int framesPerRow =3;
+        int frameWidth = 20;
+        int frameHeight = 20;
+        Duration channelDuration =Duration.seconds(0.2);
+        int startFrame=0;
+        int endFrame=4;
+
+        AnimationChannel channelFrente = new AnimationChannel(i,framesPerRow,frameWidth,frameHeight,channelDuration,startFrame,endFrame);
+
 
 
 
@@ -65,7 +102,35 @@ public class App extends GameApplication {
 
     @Override
     protected void initInput() {
+        // **
+        //    *** Movimientos de Player Animado
+        // **
 
+        onKey(KeyCode.J, () -> {
+            playerAnimado.translateX(-5.0);
+
+            //return null; // Agrega esta línea para indicar que la expresión lambda retorna null
+
+        });
+        onKey(KeyCode.L, () -> {
+            playerAnimado.translateX(5.0);
+            //return null; // Agrega esta línea para indicar que la expresión lambda retorna null
+        });
+
+        onKey(KeyCode.I, () -> {
+            playerAnimado.translateY(-5.0);
+            // return null; // Agrega esta línea para indicar que la expresión lambda retorna null
+        });
+        onKey(KeyCode.K, () -> {
+            playerAnimado.translateY(5.0);
+            // return null; // Agrega esta línea para indicar que la expresión lambda retorna null
+        });
+
+
+
+        // **
+        //    *** Movimientos de Player
+        // **
 
         onKey(KeyCode.A, () -> {
             System.out.println("-------he presionado hacia la Izquierda --------");
@@ -119,6 +184,10 @@ public class App extends GameApplication {
 
         player = spawn("player");
         set("player", player);
+
+        playerAnimado = spawn("playerAnimado");
+        set("player", playerAnimado);
+
 
         nave = spawn("nave");
         nave.translateX(100);

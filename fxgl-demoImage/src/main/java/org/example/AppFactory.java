@@ -29,6 +29,31 @@ import org.example.components.PlayerComponent;
 public class AppFactory implements EntityFactory {
 
     //-- Configuramos un Pug caminando -- //
+
+    @Spawns("playerAnimado")
+    public Entity newPlayerAnimado(SpawnData data) {
+
+        Image i = image("lilpuddinpuggums.png");
+        int framesPerRow =3;
+        int frameWidth = 40;
+        int frameHeight = 40;
+        Duration channelDuration =Duration.seconds(0.2);
+        int startFrame=1;
+        int endFrame=4;
+
+        AnimationChannel channelFrente = new AnimationChannel(i,framesPerRow,frameWidth,frameHeight,channelDuration,startFrame,endFrame);
+
+
+        return entityBuilder()
+                .type(PLAYER)
+                .view(new AnimatedTexture(channelFrente))
+               .with(new PlayerComponent())
+                .at(getAppWidth()/3,getAppHeight()/3)
+                .collidable()
+                .build();
+
+    }
+
     @Spawns("player")
     public Entity newPlayer(SpawnData data) {
 
