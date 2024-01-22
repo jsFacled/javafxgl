@@ -29,6 +29,18 @@ import org.example.components.PlayerComponent;
 
 public class AppFactory implements EntityFactory {
 
+    @Spawns("pugAnimadoConComponente")
+    public Entity newPugAnimadoConComponente(SpawnData data) {
+
+        return entityBuilder()
+                .type(HUESO)
+                .viewWithBBox(texture("hueso.png",15,15))
+                .at(350,350)
+                .collidable()
+                .build();
+    }
+
+
     //-- Configuramos un Pug caminando -- //
     //La imagen mide 96x192
     @Spawns("playerAnimado")

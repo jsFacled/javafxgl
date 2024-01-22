@@ -29,6 +29,7 @@ public class App extends GameApplication {
     private final AppFactory appFactory = new AppFactory();
     private Entity player;
     private Entity playerAnimado;
+    private Entity pugAnimadoConComponente;
     private Entity image;
     private Entity huesoAleatorio;
     private Entity nave;
@@ -186,6 +187,11 @@ public class App extends GameApplication {
         playerAnimado = spawn("playerAnimado");
         set("playerAnimado", playerAnimado);
         System.out.println("------------------------------------Player Animado Construido -----------------");
+
+
+        pugAnimadoConComponente = spawn("pugAnimadoConComponente");
+        set("pugAnimadoConComponente", pugAnimadoConComponente);
+        System.out.println("------------------------------------pugAnimadoConComponente Construido -----------------");
 
 
         nave = spawn("nave");
