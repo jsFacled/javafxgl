@@ -30,12 +30,14 @@ import org.example.components.PlayerComponent;
 public class AppFactory implements EntityFactory {
 
     //-- Configuramos un Pug caminando -- //
-
+    //La imagen mide 96x192
     @Spawns("playerAnimado")
     public Entity newPlayerAnimado(SpawnData data) {
-        //La imagen mide 96x192
+        String urlImage = "sprite_pug.png";
+        Image i = image(urlImage);
 
-        Image i = image("sprite_pug.png");
+        AnimatedTexture animTextureFrenteAndDown, animTextureIzquierda, animTextureDerecha, animTextureUp;
+
         int framesPerRow =3;
         int frameWidth = 96;
         int frameHeight = 192;
@@ -46,22 +48,24 @@ public class AppFactory implements EntityFactory {
         AnimationChannel channelFrente = new AnimationChannel(i,framesPerRow,frameWidth,frameHeight,channelDuration,startFrame,endFrame);
         AnimatedTexture textureFrente = new AnimatedTexture(channelFrente);
 
+         animTextureFrenteAndDown=texture("sprite_pug.png").subTexture(new Rectangle2D(0,20,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(0.6)).loop();
+        animTextureDerecha=texture("sprite_pug.png").subTexture(new Rectangle2D(0,117,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(0.6)).loop();
+        animTextureIzquierda=texture("sprite_pug.png").subTexture(new Rectangle2D(0,71,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(0.6)).loop();
+        animTextureUp=texture("sprite_pug.png").subTexture(new Rectangle2D(0,162,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(0.6)).loop();
+
 
         return entityBuilder()
                 .type(PLAYERANIMADO)
-                //.view(textureFrente)
-                //.view(new Rectangle())
-                .view(texture("sprite_pug.png").subTexture(new Rectangle2D(0,20,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(1)).loop())
-
+                // --  lee la imagen, capta un rectángulo de la misma, la convierte en una textura animada y al final hace un loop de la animación.--//
+               // .view(texture("sprite_pug.png").subTexture(new Rectangle2D(0,20,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(1)).loop())
+                .view(animTextureUp)
                 //.viewWithBBox(texture("sprite_pug.png", 50, 50))
-
-
 
                 .at(getAppWidth()/3,getAppHeight()/3)
                 .collidable()
 
-
                 .build();
+// TODO: 21/01/2024 colocar cada imagen animada según camine hacia izq-der-arriba-abajo
 
     }
 
