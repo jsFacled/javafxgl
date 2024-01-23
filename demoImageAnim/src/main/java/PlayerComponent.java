@@ -1,7 +1,11 @@
+import com.almasb.fxgl.core.View;
+import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
+import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
 
@@ -9,68 +13,66 @@ import static com.almasb.fxgl.dsl.FXGL.image;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.texture;
 
 public class PlayerComponent extends Component {
-    
-    private AnimatedTexture texture;
-    private AnimationChannel animIdle, animWalk; //Inactivo, Caminar;
-    Image image = image("sprite_pug.png");
-    private AnimatedTexture animTexture;
-    double imageY = 0;
+    /*
+    /Aquí se maneja la imagen del player. En Factory No.
+    *Debe manejarse dentro del Constructor.
+    *Luego mostrarse en onAdded()
 
-    // private AnimationChannel animWalkRright,animWalkLeft,animWalkUp,animWalkDdown;
+     */
+
+    private AnimationChannel animIdleChannel, animWalkChannel; //Inactivo, Caminar;
+
+    String imagePlayerNombre = "sprite_pug.png";
+    Image imagePlayer = image(imagePlayerNombre);
+
+    AnimatedTexture animTexture;
+    double imagePlayerY = 19;
+
 
     public PlayerComponent() {
-       /*
-        animIdle = new AnimationChannel(image, 4, 32, 42, Duration.seconds(1), 1, 1);
-        animWalk = new AnimationChannel(image, 4, 32, 42, Duration.seconds(0.66), 0, 3);
-
-        texture = new AnimatedTexture(animIdle);
-        texture.loop();
-        */
-
-        //-- otra forma --:
-        //                  .view(texture("sprite_pug.png").subTexture(new Rectangle2D(0,20,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(1)).loop())
-/*
-** Con channels
-        animWalkDdown = new AnimationChannel(image, 3, 32, 42, Duration.seconds(1), 0, 2);
-        animWalkLeft = new AnimationChannel(image, 3, 32, 42, Duration.seconds(1), 1, 1);
-        animWalkRright = new AnimationChannel(image, 3, 32, 42, Duration.seconds(1), 1, 1);
-        animWalkUp = new AnimationChannel(image, 3, 32, 42, Duration.seconds(1), 1, 1);
-  */
         /*
-         ** Con texture.subTexture.toAnimatedTexture
-         *
+            //Esta línea selecciona un cuadrado y muestra lo que se ve de la imagen original
+          animTexture = texture("sprite_pug.png").subTexture(new Rectangle2D(0, imagePlayerY, imagePlayer.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6));
 
-        var animWalkDdown = texture("sprite_pug.png").subTexture(new Rectangle2D(0, 20, image.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(1)).loop();
-        var idle = texture("sprite_pug.png").subTexture(new Rectangle2D(0, 20, image.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(1));
+            //Con esta línea se realiza un loop, recorriendo toda la fila.También se puede agregar directamente a la línea anterior.
+          animTexture.loop();
         */
 
+        animTexture = texture("sprite_pug.png").subTexture(new Rectangle2D(0, imagePlayerY, imagePlayer.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop();
+
+
+      /*
+      /Luego se debe agregar la animación en onAdded()
+      */
     }
 
 
-    void asignarMovimiento(String mov) {
+     public AnimatedTexture asignarMovimiento(String mov) {
         /*
          * En este método se asigna la coordenada "y" del sprite de acuerdo a la fila que representa el movimiento
          */
 
         switch (mov) {
             case "down":
-                imageY = 20;
+                imagePlayerY = 20;
                 break;
             case "left":
-                imageY = 71;
+                imagePlayerY = 71;
+             // player.translateX(-5);
                 break;
             case "right":
-                imageY = 117;
+                imagePlayerY = 117;
                 break;
             case "up":
-                imageY = 162;
+                imagePlayerY = 162;
                 break;
 
             default:
-                imageY = 20;
+                imagePlayerY = 20;
 
         }
-        animTexture = texture("sprite_pug.png").subTexture(new Rectangle2D(0, imageY, image.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop();
+        animTexture = texture("sprite_pug.png").subTexture(new Rectangle2D(0, imagePlayerY, imagePlayer.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop();
+return animTexture;
 
     /*
         animTextureFrenteAndDown=texture("sprite_pug.png").subTexture(new Rectangle2D(0,20,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(0.6)).loop();
@@ -81,18 +83,19 @@ public class PlayerComponent extends Component {
 
     }
 
-/*
+
+    @Override
+    public void onAdded() {
+
+        entity.getViewComponent().addChild(animTexture);
+
+    }
+
     @Override
     public void onUpdate(double tpf) {
-        if (texture.getAnimationChannel() != animWalk) {
-            texture.loopAnimationChannel(animWalk);
 
-        } else {
-            if (texture.getAnimationChannel() != animIdle) {
-                texture.loopAnimationChannel(animIdle);
-            }
-        }
+
     }
-*/
+
 
 }//fin

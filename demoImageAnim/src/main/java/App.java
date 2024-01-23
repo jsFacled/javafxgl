@@ -13,6 +13,7 @@ public class App extends GameApplication{
     private final AppFactory appFactory = new AppFactory();
     private Entity player;
     private Entity backround;
+    private PlayerComponent playerComponent;
 
 
     @Override
@@ -37,6 +38,12 @@ public class App extends GameApplication{
         onKey(KeyCode.S, () -> {
             player.translateY(5.0);
         });
+/*
+        onKey(KeyCode.G, () -> {
+            player.getComponent(PlayerComponent.class).asignarMovimiento("left");
+
+        });
+  */
     }
 
     @Override
@@ -48,7 +55,7 @@ public class App extends GameApplication{
 
         player = spawn("player");
         set("player", player);
-
+player.setPosition(50,300);
     }
 
 
@@ -56,5 +63,6 @@ public class App extends GameApplication{
     //fin----------------------------------------------
     public static void main( String[] args ){
         launch(args);
+
     }
 }
