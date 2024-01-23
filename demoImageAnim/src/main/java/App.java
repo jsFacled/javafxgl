@@ -26,24 +26,26 @@ public class App extends GameApplication{
 
     @Override
     protected void initInput() {
+
         onKey(KeyCode.A, () -> {
-            player.translateX(-5.0);
+            player.getComponent(PlayerComponent.class).asignarMovimiento("left");
+            //player.translateX(-5.0);
         });
         onKey(KeyCode.D, () -> {
-            player.translateX(5.0);
+            player.getComponent(PlayerComponent.class).asignarMovimiento("right");
+            //player.translateX(5.0);
         });
         onKey(KeyCode.W, () -> {
-            player.translateY(-5.0);
+            player.getComponent(PlayerComponent.class).asignarMovimiento("up");
+            //player.translateY(-5.0);
         });
         onKey(KeyCode.S, () -> {
-            player.translateY(5.0);
+            player.getComponent(PlayerComponent.class).asignarMovimiento("down");
+            //player.translateY(5.0);
         });
-/*
-        onKey(KeyCode.G, () -> {
-            player.getComponent(PlayerComponent.class).asignarMovimiento("left");
 
-        });
-  */
+
+
     }
 
     @Override
@@ -55,7 +57,8 @@ public class App extends GameApplication{
 
         player = spawn("player");
         set("player", player);
-player.setPosition(50,300);
+        player.setPosition(50,300);
+        playerComponent = player.getComponent(PlayerComponent.class); // Inicializa playerComponent
     }
 
 
