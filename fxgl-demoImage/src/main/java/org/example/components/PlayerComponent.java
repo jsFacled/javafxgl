@@ -82,7 +82,7 @@ public class PlayerComponent extends Component {
 
     }
 
-
+/*
     @Override
     public void onUpdate(double tpf) {
         if (texture.getAnimationChannel() != animWalk) {
@@ -94,7 +94,7 @@ public class PlayerComponent extends Component {
             }
         }
     }
-
+*/
 
 }//fin
 

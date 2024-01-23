@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import org.example.components.PlayerComponent;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
@@ -25,16 +26,16 @@ import static org.example.AppType.*;
 
 
 public class App extends GameApplication {
-
+/*
     private final AppFactory appFactory = new AppFactory();
     private Entity player;
     private Entity playerAnimado;
-    private Entity pugAnimadoConComponente;
+    // private Entity pugAnimadoConComponente;
     private Entity image;
     private Entity huesoAleatorio;
     private Entity nave;
     private Entity backround;
-
+*/
     @Override
     protected void initSettings(GameSettings gameSettings) {
 
@@ -44,6 +45,7 @@ public class App extends GameApplication {
 
 
     }
+/*
 
     public void animacionAnimatedChannel() {
         //Creación de AnimatedTexture utilizando AnimationChannel
@@ -67,6 +69,7 @@ public class App extends GameApplication {
             //--private final double frameDuration;
 
 
+*/
 /*
 - **Constructor adicional:**
  	(Image image,
@@ -82,7 +85,8 @@ public class App extends GameApplication {
    -el ancho y alto de cada fotograma,
    -así como el rango de fotogramas que se deben incluir en el canal.
 
-*/
+*//*
+
 
         Image i = image("sprite_pug.png");
         int framesPerRow =3;
@@ -98,9 +102,11 @@ public class App extends GameApplication {
 
 
     }
+*/
 
     @Override
     protected void initInput() {
+ /*
         // **
         //    *** Movimientos de Player Animado
         // **
@@ -151,27 +157,34 @@ public class App extends GameApplication {
             player.translateY(5.0);
             // return null; // Agrega esta línea para indicar que la expresión lambda retorna null
         });
-
+*/
 
     }
 
     @Override
     protected void initPhysics() {
+       /*
         //--El perrito come huesos:--
         /// Obtengo el PhysicsWold con getPhysicsWorld()
         /// Agrego un Manejador de Colision
         /// Indico un Handler, en este caso creo uno nuevo aquí sobreescribiendo su métdo onCollisionBegin.
+        */
+       /*
         getPhysicsWorld().addCollisionHandler(new CollisionHandler(PLAYER, HUESO) {
             @Override
             protected void onCollisionBegin(Entity i, Entity h) {
                 h.removeFromWorld();
-                System.out.println("////////************///////////////****************");
+                System.out.println("---comiendo hueso------------");
             }
         });
-    }
+    */
+}
+
+
 
     @Override
     protected void initGame() {
+        /*
         getGameWorld().addEntityFactory(appFactory);
 
         //Agrego un background
@@ -187,13 +200,16 @@ public class App extends GameApplication {
         playerAnimado = spawn("playerAnimado");
         set("playerAnimado", playerAnimado);
         System.out.println("------------------------------------Player Animado Construido -----------------");
-
+*/
+/*
 
         pugAnimadoConComponente = spawn("pugAnimadoConComponente");
         set("pugAnimadoConComponente", pugAnimadoConComponente);
         System.out.println("------------------------------------pugAnimadoConComponente Construido -----------------");
+        System.out.println("-------------- Y su altura es: " +pugAnimadoConComponente.getHeight());
+*/
 
-
+/*
         nave = spawn("nave");
         nave.translateX(100);
         set("nave", nave);
@@ -204,17 +220,19 @@ public class App extends GameApplication {
             spawn("huesoAleatorio");
         }, Duration.seconds(0.2));
 
+
         //La pantalla seguirá al Jugador y se duplicará de ser necesario.
         Viewport viewport = getGameScene().getViewport();
-        viewport.setBounds(-1500, 0, 250 * 70, getAppHeight());
+        viewport.setBounds(-1000, 0, 250 * 70, getAppHeight());
         viewport.bindToEntity(playerAnimado, getAppWidth() / 2, getAppHeight() / 2);
         viewport.setLazy(true);
-
+*/
     }
 
 
     //fin
     public static void main(String[] args) {
+
         launch(args);
     }
 }

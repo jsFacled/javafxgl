@@ -17,6 +17,7 @@ import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Box;
 import javafx.scene.shape.Rectangle;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
@@ -28,18 +29,23 @@ import javafx.util.Duration;
 import org.example.components.PlayerComponent;
 
 public class AppFactory implements EntityFactory {
+/*
 
     @Spawns("pugAnimadoConComponente")
     public Entity newPugAnimadoConComponente(SpawnData data) {
 
         return entityBuilder()
-                .type(HUESO)
-                .viewWithBBox(texture("hueso.png",15,15))
-                .at(350,350)
+                .type(PLAYERANIMADO)
+                //.viewWithBBox(new Rectangle(50,70))
+                //.viewWithBBox(texture("sprite_pug.png",25,25))
+                .viewWithBBox(texture("sprite_pug.png").subTexture(new Rectangle2D(0, 0, 30, 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop())
+                .with(new PlayerComponent())
+                .at(10,350)
                 .collidable()
                 .build();
     }
 
+*/
 
     //-- Configuramos un Pug caminando -- //
     //La imagen mide 96x192
@@ -77,8 +83,6 @@ public class AppFactory implements EntityFactory {
                 .collidable()
 
                 .build();
-// TODO: 21/01/2024 colocar cada imagen animada según camine hacia izq-der-arriba-abajo
-
     }
 
     @Spawns("player")
@@ -98,19 +102,13 @@ public class AppFactory implements EntityFactory {
 
         return entityBuilder()
                 .type(PLAYER)
-
                 .anchorFromCenter()
                 //.view(view.loop())
                 .view(view)
-
                 //.with(new PlayerComponent())
-
                 .at(getAppWidth()/2,getAppHeight()/2)
                 .collidable()
                 //.with(new AutoRotationComponent().withSmoothing())//sirve para imagenes vista desde arriba, luego vueve a su vista original.
-
-
-
                         .build();
 
     }
