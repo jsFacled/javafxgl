@@ -11,14 +11,14 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.entityBuilder;
 public class AppFactory implements EntityFactory {
 
     private String imageBackground = "bosque.jpg";
-    private String imagePlayer = "";
+    private String imagePlayer = "sprite_pug.png";
 
     @Spawns("player")
     public Entity newPlayer(SpawnData data) {
 
         return entityBuilder()
                 .type(AppType.PLAYER)
-                .viewWithBBox(new RandomOccurrenceView())
+                .viewWithBBox(imagePlayer)
                 //.with(new PlayerComponent())
                 .at(getAppWidth()/2,getAppHeight()/2)
                 .collidable()
@@ -31,8 +31,6 @@ public class AppFactory implements EntityFactory {
         return entityBuilder()
                 .type(AppType.BACKGROUND)
                 .view(imageBackground)
-                //.opacity(0.5)
-
                 .zIndex(-1)
                 .with(new IrremovableComponent())
                 .build();
