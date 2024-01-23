@@ -11,11 +11,15 @@ import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.demo.fxgldemo.components.PlayerComponent;
 import com.demo.fxgldemo.components.PlayerCuboComponent;
 import javafx.geometry.Point2D;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGLForKtKt.texture;
 import static com.demo.fxgldemo.entitys.demoEntityTipe.*;
 
 /**
@@ -26,6 +30,23 @@ import static com.demo.fxgldemo.entitys.demoEntityTipe.*;
 * La clase DemoFactory se encarga de crear y configurar entidades en el juego
 * */
 public class DemoFactory implements EntityFactory {
+
+    /**
+     * Utilizao solamenteParaPracticar
+     *
+     * */
+
+
+    @Spawns("solamenteParaPracticar")
+    public Entity practica(SpawnData data) {
+        Image i=new Image("player.png");
+        return entityBuilder(data)
+                .view(texture("sprite_pug.png").subTexture(new Rectangle2D(0,20,i.getWidth(),30)).toAnimatedTexture(3, Duration.seconds(1)).loop())
+
+
+                .build();
+    }
+
 
     /**
      * Configurar Entidad Player
@@ -60,6 +81,7 @@ public class DemoFactory implements EntityFactory {
                 .with(new PlayerCuboComponent())
                 .build();
     }
+
 
     @Spawns("playerCubo2")
     public Entity newPlayerCubo2(SpawnData data) {
