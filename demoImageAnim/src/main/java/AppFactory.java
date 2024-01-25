@@ -3,6 +3,11 @@ import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
+import com.almasb.fxgl.physics.BoundingShape;
+import com.almasb.fxgl.physics.HitBox;
+import javafx.scene.shape.Box;
+import javafx.scene.shape.Rectangle;
+
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.entityBuilder;
 
@@ -19,7 +24,7 @@ public class AppFactory implements EntityFactory {
 
         return entityBuilder()
                 .type(AppType.PLAYER)
-                .view(imagePlayer)
+                .viewWithBBox(new Rectangle(25,25))
                 .with(new PlayerComponent())
                 .collidable()
                 .build();
