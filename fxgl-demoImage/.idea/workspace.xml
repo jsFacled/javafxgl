@@ -5,6 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ace19f6e-9519-4bd4-ad6e-0f4c8e533bc7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-16.44.35.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-16.47.09.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-16.48.17.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-16.50.56.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-16.51.48.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-17.02.13.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-17.04.22.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-17.07.29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-17.09.24.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/logs/FXGL-23-ene-2024-17.10.21.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demoImageAnim/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/src/main/java/AppFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demoImageAnim/src/main/java/AppFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoImageAnim/src/main/java/PlayerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demoImageAnim/src/main/java/PlayerComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
