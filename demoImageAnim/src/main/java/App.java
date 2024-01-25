@@ -36,24 +36,18 @@ public class App extends GameApplication {
     protected void initInput() {
         //Agrego actionName
         onKey(KeyCode.A, "Move Left",() -> {
-           player.getComponent(PlayerComponent.class).asignarMovimiento("left");
-            //System.out.println("--++--++--++--++--++--++--++-- imagePlayerY *left* es: "+player.getComponent(PlayerComponent.class).imagePlayerY);
+            player.getComponent(PlayerComponent2.class).moveLeft();
         });
         onKey(KeyCode.D, "Move Right",() -> {
-            player.getComponent(PlayerComponent.class).asignarMovimiento("right");
-           // System.out.println("--++--++--++--++--++--++--++-- imagePlayerY *right* es: "+player.getComponent(PlayerComponent.class).imagePlayerY);
 
+            player.getComponent(PlayerComponent2.class).moveRight();
         });
         onKey(KeyCode.W, "Move Up",() -> {
-           player.getComponent(PlayerComponent.class).asignarMovimiento("up");
-           // System.out.println("--++--++--++--++--++--++--++-- imagePlayerY * up *es: "+player.getComponent(PlayerComponent.class).imagePlayerY);
 
+            player.getComponent(PlayerComponent2.class).moveUp();
         });
         onKey(KeyCode.S, "Move Down",() -> {
-           player.getComponent(PlayerComponent.class).asignarMovimiento("down");
-          //  System.out.println("--++--++--++--++--++--++--++-- imagePlayerY * down * es: "+player.getComponent(PlayerComponent.class).imagePlayerY);
-
-
+            player.getComponent(PlayerComponent2.class).moveDown();
         });
     }
 
@@ -74,5 +68,10 @@ public class App extends GameApplication {
     public static void main(String[] args) {
         launch(args);
 
+    }
+
+    @Override
+    protected void initPhysics() {
+        super.initPhysics();
     }
 }
