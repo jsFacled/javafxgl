@@ -137,48 +137,25 @@ public class App3 extends GameApplication {
 
         ;
 
-    // Crear Botón que al hacer clic, invoca la creación de un robot desde un frame específico
-     //Crearé 4 botones
-        /// Create Button that, when clicked, invokes the creation of a robot from a specific frame
+        // Crearé 4 botones
         ///I will create 4 buttons
         var btnDown = new Button("Down");
         var btnLeft= new Button("Left");
         var btnRight = new Button("Right");
         var btnUp = new Button("Up");
 
-
+        //Agregando funciones a los botones
+        ///Adding functions to buttons
         btnDown.setOnAction(e->playerDown() );
         btnLeft.setOnAction(e->playerLeft());
         btnRight.setOnAction(e-> playerRight());
         btnUp.setOnAction(e-> playerUp());
 
-
-        // Organiza los controles en un VBox
-        /// Organize controls in a VBox
-        /*
-        var vboxDown = new VBox(10, frameSpinner, btnDown);
-        var vboxLeft = new VBox(10, frameSpinner, btnLeft);
-        var vboxRight = new VBox(10, frameSpinner, btnRight);
-        var vboxUp = new VBox(10, frameSpinner, btnUp);
-
-
-        // Agrego los VBox a la escena UI
-        /// I add the VBoxes to the UI scene
-        addUINode(vboxDown, 1100, 700);
-        addUINode(vboxLeft, 1050, 650);
-        addUINode(vboxRight, 1150, 650);
-        addUINode(vboxUp, 1100, 600);
-
-        */
-
-
-
-        // Agrego los VBox a la escena UI
-        /// I add the VBoxes to the UI scene
+        //Agregando Nodos a la ui
+        ///Adding Nodes to the UI
         addUINode(btnDown, 1100, 700);
         addUINode(btnLeft, 1050, 650);
         addUINode(btnRight, 1150, 650);
-
         addUINode(btnUp, 1100, 600);
         addUINode(frameText, 950, 550);
 
