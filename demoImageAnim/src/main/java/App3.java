@@ -12,10 +12,14 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
@@ -41,9 +45,15 @@ public class App3 extends GameApplication {
     @Override
     protected void initGame() {
         // Configura el color de fondo de la escena del juego
+        //Set the background color of the game scene
         getGameScene().setBackgroundColor(Color.gray(0.5));
         playerDown();
     }
+
+    /**
+     * --------------------- 4 methods that create the player's position ----------
+     *------------------------------------------------------------------------------
+     */
 
     public Entity playerUp(){
         Image imageTexturePug = image(nameImagePug);
@@ -56,7 +66,7 @@ public class App3 extends GameApplication {
         return entityBuilder()
                 .type(AppType.PLAYER)
                 .view(animTextureUp.loop())
-                .at(50,50)
+                .at(getAppCenter())
                 .collidable()
                 .buildAndAttach();
     }
@@ -72,7 +82,7 @@ public class App3 extends GameApplication {
         return entityBuilder()
                 .type(AppType.PLAYER)
                 .view(animTextureDown.loop())
-                .at(50,50)
+                .at(getAppCenter())
                 .collidable()
                 .buildAndAttach();
     }
@@ -88,7 +98,7 @@ public class App3 extends GameApplication {
         return entityBuilder()
                 .type(AppType.PLAYER)
                 .view(animTextureRight.loop())
-                .at(50,50)
+                .at(getAppCenter())
 
                 .collidable()
                 .buildAndAttach();
@@ -105,20 +115,32 @@ public class App3 extends GameApplication {
         return entityBuilder()
                 .type(AppType.PLAYER)
                 .view(animTextureLeft.loop())
-                .at(50,50)
+                .at(getAppCenter())
                 .collidable()
                 .buildAndAttach();
     }
 
 
+    /**
+     *
+     * ------------------------- UI -------------------------
+     * ------------------------------------------------------
+     */
+
     @Override
     protected void initUI() {
 
-        var frameSpinner = new Spinner<Integer>(0, 23, 0);
-        frameSpinner.setPrefWidth(200);
+
+        var frameText = new Label("Clik Down, Left, Right or Up!");
+        frameText.setTextFill(Color.WHITE);
+        frameText.setFont(Font.font("Verdama",25));
+
+        ;
 
     // Crear Botón que al hacer clic, invoca la creación de un robot desde un frame específico
      //Crearé 4 botones
+        /// Create Button that, when clicked, invokes the creation of a robot from a specific frame
+        ///I will create 4 buttons
         var btnDown = new Button("Down");
         var btnLeft= new Button("Left");
         var btnRight = new Button("Right");
@@ -132,21 +154,38 @@ public class App3 extends GameApplication {
 
 
         // Organiza los controles en un VBox
+        /// Organize controls in a VBox
+        /*
         var vboxDown = new VBox(10, frameSpinner, btnDown);
         var vboxLeft = new VBox(10, frameSpinner, btnLeft);
         var vboxRight = new VBox(10, frameSpinner, btnRight);
         var vboxUp = new VBox(10, frameSpinner, btnUp);
 
+
         // Agrego los VBox a la escena UI
+        /// I add the VBoxes to the UI scene
         addUINode(vboxDown, 1100, 700);
         addUINode(vboxLeft, 1050, 650);
         addUINode(vboxRight, 1150, 650);
         addUINode(vboxUp, 1100, 600);
 
+        */
+
+
+
+        // Agrego los VBox a la escena UI
+        /// I add the VBoxes to the UI scene
+        addUINode(btnDown, 1100, 700);
+        addUINode(btnLeft, 1050, 650);
+        addUINode(btnRight, 1150, 650);
+
+        addUINode(btnUp, 1100, 600);
+        addUINode(frameText, 950, 550);
+
     }
 
 
-    // Método principal para iniciar la aplicación
+
     public static void main(String[] args) {
         launch(args);
     }
