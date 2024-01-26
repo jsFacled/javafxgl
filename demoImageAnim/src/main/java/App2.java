@@ -82,7 +82,9 @@ public class App2 extends GameApplication {
         });
 
         // Organiza los controles en un VBox y lo agrega a la escena UI
+          ///Agrega un espacio entre cada Nodo, luego se va indicando cada nodo a ordenar.
         var vbox = new VBox(10, frameSpinner, btn);
+          ///Indica el Nodo Padre y sus coordenadas en la UI
         addUINode(vbox, 1230, 820);
     }
 
