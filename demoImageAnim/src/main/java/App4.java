@@ -23,11 +23,11 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.entityBuilder;
 
 
 /**
- * En App3 hay 4 Botones que cambian la posición del jugador animado.
- * Inicializa con playerDown.
+ * En App4 se mueve al playerAnimado con ADWS.
+ *
  */
 
-public class App3 extends GameApplication {
+public class App4 extends GameApplication {
     String nameImagePug = "sprite_pug.png";
     AnimatedTexture  animTextureDown, animTextureLeft, animTextureRight, animTextureUp;
 
@@ -117,8 +117,8 @@ public class App3 extends GameApplication {
         var frameSpinner = new Spinner<Integer>(0, 23, 0);
         frameSpinner.setPrefWidth(200);
 
-    // Crear Botón que al hacer clic, invoca la creación de un robot desde un frame específico
-     //Crearé 4 botones
+        // Crear Botón que al hacer clic, invoca la creación de un robot desde un frame específico
+        //Crearé 4 botones
         var btnDown = new Button("Down");
         var btnLeft= new Button("Left");
         var btnRight = new Button("Right");
