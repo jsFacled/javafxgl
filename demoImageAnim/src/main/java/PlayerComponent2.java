@@ -7,6 +7,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
 
+import static com.almasb.fxgl.dsl.FXGL.getInput;
 import static com.almasb.fxgl.dsl.FXGL.image;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.texture;
 
@@ -18,7 +19,8 @@ public class PlayerComponent2 extends Component {
 
 
     private AnimationChannel animIdle, animWalkDefault, animWalkFront, animWalkUp, animWalkRight, animWalkLeft;
-    private AnimatedTexture animTexture;
+    private AnimatedTexture animTexture, animTextureUp, animTextureRight,animTextureLeft;
+
 
 
     public PlayerComponent2() {
@@ -38,25 +40,46 @@ public class PlayerComponent2 extends Component {
         animTexture = new AnimatedTexture(animWalkDefault);
         animTexture.loop();
 
+        //Creo un nodo para agregarlo al método moveUp()
+        animTextureUp=new  AnimatedTexture(animWalkUp);
+        animTextureRight=new  AnimatedTexture(animWalkRight);
+        animTextureLeft=new  AnimatedTexture(animWalkLeft);
+
+
     }
 
-    public void moveLeft(){
+    /*
+    *       -- Movimientos ASWD --
+    * */
 
+    // int dy=0;
+    // int dx=0;
+    String moving="down";
+    public void moveLeft(){
+        moving="left";
+        //dx=-1;
         entity.translateX(-1 * playerVelocity);
+       // onUpdate(1);
     }
     public void moveDown(){
-
-        entity.translateY(playerVelocity);
+        moving="down";
+        //dy=1;
+        entity.translateY(1*playerVelocity);
+       // onUpdate(1);
 
     }
     public void moveRight(){
-
-        entity.translateX(playerVelocity);
+        moving="right";
+        //dx=1;
+        entity.translateX(1*playerVelocity);
+       onUpdate(1);
 
     }
     public void moveUp(){
-
+        moving="up";
+        //dy=-1;
         entity.translateY(-1 * playerVelocity);
+        onUpdate(1);
 
     }
 
@@ -64,23 +87,36 @@ public class PlayerComponent2 extends Component {
     @Override
     public void onAdded() {
 
-        entity.getViewComponent().addChild(animTexture);
+     entity.getViewComponent().addChild(animTexture);
+
+
 
     }
 
     @Override
     public void onUpdate(double tpf) {
+switch (moving){
+    case "left":animTexture.set(animTextureLeft);break;
+    case "down":animTexture.set(animTexture);break;
+    case "right":animTexture.set(animTextureRight);break;
+    case "up":animTexture.set(animTextureUp);break;
+
+}
+
 /*
-        if (physics.isMovingX()) {
-            if (animTexture.getAnimationChannel() != animWalkDefault) {
-                animTexture.loopAnimationChannel(animWalkDefault);
-            }
-        } else {
-            if (animTexture.getAnimationChannel() != animIdle) {
-                animTexture.loopAnimationChannel(animIdle);
-            }
+        if (dy==-1) {
+            dx=0;
+            animTexture.set(animTextureUp);
         }
- */
+        if (dx==-1) {
+            dy=0;
+            animTexture.set(animTextureLeft);
+        }
+        if (dx==1) {
+            dy=0;
+            animTexture.set(animTextureRight);
+        }
+*/
     }
 
 
