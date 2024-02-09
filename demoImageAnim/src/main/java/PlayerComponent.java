@@ -126,7 +126,6 @@ public void moveLeft(){
         animTextureUp=texture("sprite_pug.png").subTexture(new Rectangle2D(0,162,i.getWidth(),30)).toAnimatedTexture(3,Duration.seconds(0.6)).loop();
 */
 
-
     }
 
 

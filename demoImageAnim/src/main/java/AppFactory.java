@@ -25,7 +25,7 @@ public class AppFactory implements EntityFactory {
         return entityBuilder()
                 .type(AppType.PLAYER)
                 .viewWithBBox(new Rectangle(25,25))
-                .with(new PlayerComponent2())
+                .with(new PlayerComponentFinal())
                 .collidable()
                 .build();
     }

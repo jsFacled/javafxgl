@@ -24,6 +24,8 @@ public class PlayerComponent2 extends Component {
 
 
     public PlayerComponent2() {
+
+        //Capturamos 4 imágens.png
         Image imagePlayerFront = image("pugFrente.png");
         Image imagePlayerUp = image("pugEspalda.png");
         Image imagePlayerRight = image("pudDerecha.png");
@@ -50,6 +52,8 @@ public class PlayerComponent2 extends Component {
 
     /*
     *       -- Movimientos ASWD --
+    * Se declara una variable condicional "moving".
+    * En cada movimiento se va cambiando dicha variable.
     * */
 
     // int dy=0;
@@ -72,14 +76,14 @@ public class PlayerComponent2 extends Component {
         moving="right";
         //dx=1;
         entity.translateX(1*playerVelocity);
-       onUpdate(1);
+      // onUpdate(1);
 
     }
     public void moveUp(){
         moving="up";
         //dy=-1;
         entity.translateY(-1 * playerVelocity);
-        onUpdate(1);
+       // onUpdate(1);
 
     }
 
