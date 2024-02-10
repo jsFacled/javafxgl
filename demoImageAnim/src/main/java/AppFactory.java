@@ -25,7 +25,6 @@ public class AppFactory implements EntityFactory {
         return entityBuilder()
                 .type(AppType.BACKGROUND)
                 .view(imageBackground)
-                .zIndex(-10)
                 .with(new IrremovableComponent())
                 .build();
     }

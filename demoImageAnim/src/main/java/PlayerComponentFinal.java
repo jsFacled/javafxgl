@@ -12,6 +12,7 @@ public class PlayerComponentFinal extends Component {
     // ** Establezco los elementos a utilizar
     int playerVelocity = 3;
     static Image imagePlayer = image("sprite_pug.png");
+
     MovementType movement = MovementType.DEFAULT;
     double imagePlayerY;
 
@@ -22,7 +23,7 @@ public class PlayerComponentFinal extends Component {
     double imagePlayerYforRight = 117;
 
     // ** Inicializo animTexture con movimiento Down.
-    AnimatedTexture animTexture=texture("sprite_pug.png").subTexture(new Rectangle2D(0, imagePlayerYforDown, imagePlayer.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop();;
+   AnimatedTexture animTexture=texture("sprite_pug.png").subTexture(new Rectangle2D(0, imagePlayerYforDown, imagePlayer.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop();;
 
     // ** Constructor Vacío
     public PlayerComponentFinal() {
@@ -65,7 +66,8 @@ public class PlayerComponentFinal extends Component {
          //Establezco la coordenada -Y- del sprite para ir asignando a cada movimiento
 
 
-        AnimatedTexture animTextureFromSprite = texture("sprite_pug.png").subTexture(new Rectangle2D(0, imagePlayerY, imagePlayer.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop();
+       AnimatedTexture animTextureFromSprite = texture("sprite_pug.png").subTexture(new Rectangle2D(0, imagePlayerY, imagePlayer.getWidth(), 30)).toAnimatedTexture(3, Duration.seconds(0.6)).loop();
+
         switch (mov) {
             case DOWN:
                 imagePlayerY = imagePlayerYforDown;

@@ -19,7 +19,6 @@ public class AppFinal extends GameApplication {
     }
 
 
-
     @Override
     protected void initInput() {
         //Agrego actionName. Luego asigno movimiento a la entidad.
